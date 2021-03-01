@@ -1,0 +1,47 @@
+<div class="card">
+  <button (click)="addFormControl()">Нажми меня</button>
+  <form [formGroup]="form">
+    <div *ngIf="form">
+      <p-table  [value]="getArrayControl.controls"  formArrayName="tableRowArray" [rows]="100" [resizableColumns]="true"
+               styleClass="p-datatable-gridlines">
+        <ng-template pTemplate="header">
+          <tr>
+            <th pResizableColumn>
+              <div class="inner_table">Code</div>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template  pTemplate="body" let-product let-i="index">
+          <ng-container>
+            <tr [formGroupName]="i">
+              <td>
+                <input formControlName="name" placeholder="Kek">
+              </td>
+            </tr>
+          </ng-container>
+        </ng-template>
+      </p-table>
+    </div>
+  </form>
+
+</div>
+
+<!--<div class="card">-->
+<!--  <button (click)="addFormControl()">Нажми меня</button>-->
+<!--  <form [formGroup]="form">-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--          <th>-->
+<!--            <div class="inner_table">Code</div>-->
+<!--          </th>-->
+<!--        </tr>-->
+<!--        <ng-container  formArrayName="tableRowArray">-->
+<!--          <tr  *ngFor="let row of getArrayControl.controls; index as i">-->
+<!--            <td [formGroupName]="i">-->
+<!--              <input formControlName="name" placeholder="Kek">-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--        </ng-container>-->
+<!--    </table>-->
+<!--  </form>-->
+<!--</div>-->
